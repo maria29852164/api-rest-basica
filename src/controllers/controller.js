@@ -20,9 +20,9 @@ const pool =new Pool({
 const getUsers=async(req,res)=>{
 
     const Users=await pool.query('SELECT * FROM users')
-    console.log(Users.rows)
+    //console.log(Users.rows)
     res.status(200).json(Users.rows)
-    res.send('users')
+    //res.send('users') 
 }
 const createUser=async(req,res)=>{
     const {name,email}=req.body
