@@ -30,7 +30,16 @@ const createUser=async(req,res)=>{
     //const prueba =await pool.query('INSERT INTO users(name_user,email) VALUES("ssss","ssssa")')
     console.log(response)
     
-    res.send('users');
+    //res.send('users');
+    res.json({
+        message:"User added succesfully",
+        body:{
+            user:{name,email}
+        }
+
+    }
+        
+)
 
     
     //res.send('user created')
