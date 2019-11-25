@@ -72,10 +72,23 @@ const deleteUser=async(req,res)=>{
    console.log(response)
    res.json(`User ${id} deleted`)
 }
+
+const updateUser=async(req,res)=>{
+    const id=req.params.id,
+    {name,email}=req.body
+    
+    const response=await pool.query('UPDATE users SET name_user=$1, email=$2 WHERE id=$3',[name,email,id])
+    console.log(response)
+    res.json({
+        message:'User update Succesfully'
+    })
+
+}
 module.exports={
     getUsers,
     deleteUser,
     createUser,
-    getUserId
+    getUserId,
+    updateUser
 
 };
