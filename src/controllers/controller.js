@@ -48,10 +48,33 @@ const createUser=async(req,res)=>{
 
 }
 const getUserId=async(req,res)=>{
-    res.send('respuesta'+req.params.id)
+    //res.send('respuesta'+req.params.id)
+    const id=req.params.id
+    const User=await pool.query('SELECT * FROM users WHERE id=$1',[id])
+    //console.log(User.rows)
+
+   
+
+    res.json(User.rows)
+
+     
+    
+
+  
+       
+    
+    
+  
+}
+const deleteUser=async(req,res)=>{
+    const id =req.params.id
+   const response=await pool.query('DELETE FROM users WHERE id=$1',[id])
+   console.log(response)
+   res.json(`User ${id} deleted`)
 }
 module.exports={
     getUsers,
+    deleteUser,
     createUser,
     getUserId
 
