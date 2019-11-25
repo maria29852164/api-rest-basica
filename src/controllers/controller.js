@@ -25,11 +25,11 @@ const getUsers=async(req,res)=>{
     res.send('users')
 }
 const createUser=async(req,res)=>{
-    //const {name,email}=req.body
-    //const response=await pool.query('INSERT INTO users(name_user,email) VALUES($1 , $2) ',[req.body.name,req.body.email]);
+    const {name,email}=req.body
+    const response=await pool.query('INSERT INTO users(name_user,email) VALUES($1 , $2) ',[name,email]);
     //const prueba =await pool.query('INSERT INTO users(name_user,email) VALUES("ssss","ssssa")')
-    //console.log(response)
-    console.log(req.body)
+    console.log(response)
+    
     res.send('users');
 
     
