@@ -47,9 +47,12 @@ const createUser=async(req,res)=>{
     
 
 }
-
+const getUserId=async(req,res)=>{
+    res.send('respuesta'+req.params.id)
+}
 module.exports={
     getUsers,
-    createUser
+    createUser,
+    getUserId
 
 };
